@@ -63,7 +63,7 @@ class Stagiaire
     private $postalCode;
 
     /**
-     * @Assert\NotBlank
+     * 
      * @ORM\ManyToMany(targetEntity=Competence::class, mappedBy="stagiaire")
      */
     private $competences;

@@ -45,12 +45,14 @@ class MainController extends AbstractController
      */
     public function addStagiaire(Request $reqest): Response
     {
-        $competence = new Stagiaire();
-        $form = $this->createForm(StagiaireFormType::class, $competence);
+        $stagiaire = new Stagiaire();
+        
+        $form = $this->createForm(StagiaireFormType::class, $stagiaire);
+
         $form->handleRequest($reqest);
         if($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($competence);
+            $entityManager->persist($stagiaire);
             $entityManager->flush();
         }
 

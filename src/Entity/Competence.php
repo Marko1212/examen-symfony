@@ -29,7 +29,7 @@ class Competence
 
     /**
      * @ORM\ManyToMany(targetEntity=Stagiaire::class, inversedBy="competences")
-     * @Assert\NotBlank
+     * 
      */
     private $stagiaire;
 
