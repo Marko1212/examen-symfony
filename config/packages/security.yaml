@@ -22,7 +22,7 @@ security:
                     - App\Security\LoginFormAuthenticator
 
             logout:
-                path: logout
+                path: app_logout
 
     access_control:
         - { path: ^/add-stagiaire, roles: ['ROLE_ADMIN'] }

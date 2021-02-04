@@ -21,7 +21,7 @@ class MainController extends AbstractController
 {
 
     /**
-     * @Route("/", name="main")
+     * @Route("/add-competence", name="add-competence")
      */
     public function addCompetence(Request $reqest): Response
     {
