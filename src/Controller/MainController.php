@@ -45,7 +45,7 @@ class MainController extends AbstractController
      */
     public function addStagiaire(Request $reqest): Response
     {
-        $competence =new Stagiaire();
+        $competence = new Stagiaire();
         $form = $this->createForm(StagiaireFormType::class, $competence);
         $form->handleRequest($reqest);
         if($form->isSubmitted() && $form->isValid()) {
