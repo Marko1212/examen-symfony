@@ -1,17 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Hello
+	{{app.user.username}}!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+		.flex {
+			display: flex;
+		}
+        .marge {
+            margin-right: 10px;
+        }
+	</style>
 
-<div class="example-wrapper">  
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
-    {{ form_widget(form) }}
-    <button type="submit" class="button">Send</button>
-    {{ form_end(form) }}
-</div>
+	<div class="example-wrapper">
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.username }},
+				<a href="{{ path('app_logout') }}">Logout</a>
+			</div>
+			<div class="flex">
+				<div class="mb-3 marge">
+					<a href="{{ path('add-competence') }}">Ajouter une compétence</a>
+				</div>
+				<div class="mb-3">
+					<a href="{{ path('add-stagiaire') }}">Ajouter un stagiaire</a>
+				</div>
+			</div>
+		{% endif %}
+		{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+		{{ form_widget(form) }}
+		<button type="submit" class="button">Send</button>
+		{{ form_end(form) }}
+	</div>
 {% endblock %}
