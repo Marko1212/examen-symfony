@@ -22,7 +22,7 @@ class StagiaireFormType extends AbstractType
             ->add('birthday')
             ->add('postalCode')
             //->add('competences');
-            ->add('competences', null, array("multiple" => "true", 'by_reference' => false));
+            ->add('competences', null, array("expanded" => true, "multiple" => true, 'by_reference' => false));
 
     }
 
